@@ -73,7 +73,7 @@ public class PostagemController {
 		
 		if(postagemRepository.existsById(postagem.getId())) {
 			if(temaRepository.existsById(postagem.getTema().getId())) {
-				ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem));
+				return ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem));
 			}
 			
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Tema não existe !", null);
